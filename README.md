@@ -1,1 +1,1 @@
-# Hadith-Generator
+# Hadeeth-Generator
