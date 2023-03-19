@@ -83,7 +83,6 @@ color: black;
     background-color:  #d62246;
     font-size: 1.8em;
     color: white;
-    transition: all ease 0.2s;
 
 }
 
@@ -246,17 +245,17 @@ color: black;
     font-size: 22px;
     position: relative;
 }
-
+/* 
 #getnew:hover{
     background-color: #22577a;
     color: white;
 
-}
+} */
 
 #getnew:active{
     cursor: pointer;
-    background-color: #c7f9cce3;
-    color:black;
+    color:#d62246;
+background-color: white;    
 }
 
 .refrence{
