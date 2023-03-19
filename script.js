@@ -1,5 +1,15 @@
-window.onload=()=>{gethadith()}
+window.onload=()=>{
+  preparecontainer();
+  goloading();
+  setTimeout(()=>{
+  stploading()
+  },1500);
+  
+  setTimeout(() => {
+    gethadith()
+  }, 1500);
 
+}
 //!SELECTING A RANDOM BOOK
 
 function getRandomNumber(min, max) {
@@ -83,11 +93,48 @@ let refrence='im the refrence';
   };
   fetchdata();
 }
+
+preparecontainer=()=>{
+let hadithcotainer=document.querySelector(".yo");
+hadithcotainer.textContent=""
+// hadithcotainer.style.backgroundColor = "rgb(235, 235, 235);"
+}
+
+goloading=()=>{
+  let loader=document.querySelector(".dot-spinner");
+loader.style.visibility="visible";
+}
+stploading=()=>{
+  let loader=document.querySelector(".dot-spinner");
+
+  loader.style.visibility="hidden";
+}
+
+
+
+
+let mybtn=document.getElementById("getnew")
+mybtn.addEventListener("click",()=>{
+preparecontainer();
+goloading();
+setTimeout(()=>{
+stploading()
+},1500);
+
+setTimeout(() => {
+  gethadith()
+}, 1500);
   
-  let mybtn=document.getElementById("getnew")
-  mybtn.addEventListener("click",()=>{
-gethadith();
-  })
+
+
+
+
+
+
+
+
+
+})
 
 
 
