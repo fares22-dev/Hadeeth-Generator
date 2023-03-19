@@ -7,7 +7,7 @@ window.onload=()=>{
   
   setTimeout(() => {
     gethadith()
-  }, 1500);
+  }, 1400);
 
 }
 //!SELECTING A RANDOM BOOK
@@ -81,14 +81,18 @@ let refrence='im the refrence';
   const fetchdata = async () => {
     let response = await fetch("books/" + selectedBook + ".json");
     let data = await response.json();
-    while (data[randhadith].arab.length > 700) {
+    console.log("im fetching hadith nmber ",randhadith,"form ",selectedBook);
+    while ((data[randhadith]) && (data[randhadith].arab.length > 700) ){
       randhadith = getRandomNumber(1, max);
     }
     let hadithcotainer=document.querySelector(".yo");
     let docrefrence=document.createElement("p");
     docrefrence.textContent="-"+refrence
     docrefrence.classList.add("refrence");
-    hadithcotainer.textContent = data[randhadith].arab + '.';
+    if( (!(data.hasOwnProperty(randhadith)))){
+      randhadith=getRandomNumber(1,1000)
+    }
+       hadithcotainer.textContent = data[randhadith].arab + '.';
     hadithcotainer.appendChild(docrefrence)
   };
   fetchdata();
@@ -97,7 +101,7 @@ let refrence='im the refrence';
 preparecontainer=()=>{
 let hadithcotainer=document.querySelector(".yo");
 hadithcotainer.textContent=""
-// hadithcotainer.style.backgroundColor = "rgb(235, 235, 235);"
+hadithcotainer.style.backgroundColor="#0e7c7b";
 }
 
 goloading=()=>{
@@ -106,6 +110,10 @@ loader.style.visibility="visible";
 }
 stploading=()=>{
   let loader=document.querySelector(".dot-spinner");
+  let temp=document.querySelector(".yo");
+  temp.style.backgroundColor="#d4f4dd"
+
+
 
   loader.style.visibility="hidden";
 }
@@ -120,10 +128,17 @@ goloading();
 setTimeout(()=>{
 stploading()
 },1500);
-
+setTimeout(() => {
+  let temp=document.querySelector(".yo");
+  temp.style.backgroundColor=" #d4f4dd"
+}, 1400);
 setTimeout(() => {
   gethadith()
-}, 1500);
+}, 1350);
+
+
+
+
   
 
 
