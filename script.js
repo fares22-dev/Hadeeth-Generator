@@ -81,17 +81,17 @@ let refrence='im the refrence';
   const fetchdata = async () => {
     let response = await fetch("books/" + selectedBook + ".json");
     let data = await response.json();
-    console.log("im fetching hadith nmber ",randhadith,"form ",selectedBook);
-    while ((data[randhadith]) && (data[randhadith].arab.length > 700) ){
+    while ((data[randhadith]) && (data[randhadith].arab.length > 600) ){
       randhadith = getRandomNumber(1, max);
     }
     let hadithcotainer=document.querySelector(".yo");
     let docrefrence=document.createElement("p");
     docrefrence.textContent="-"+refrence
     docrefrence.classList.add("refrence");
-    if( (!(data.hasOwnProperty(randhadith)))){
+    while( (!((data.hasOwnProperty(randhadith))&& (data[randhadith].arab.length<600)))){
       randhadith=getRandomNumber(1,1000)
     }
+    console.log("im fetching hadith nmber ",randhadith,"form ",selectedBook,"and the length is ",data[randhadith].arab.length)
        hadithcotainer.textContent = data[randhadith].arab + '.';
     hadithcotainer.appendChild(docrefrence)
   };
